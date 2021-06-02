@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">RoteiroTuristicoBeja</string>
+
+    <string-array name="Bem_vindo_a_Beja">
+        <item>Castelo de Beja</item>
+        <item>Museu Regional de Beja</item>
+        <item>Núcleo Museulógico</item>
+        <item>Museu Visigóico</item>
+        <item>Igreja da Nossa Senhora dos Prazeres</item>
+        <item>Jardim Gago Coutinho e Sacadura Cabral</item>
+
+    </string-array>
+</resources>
