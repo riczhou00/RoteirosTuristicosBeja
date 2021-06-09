@@ -12,8 +12,8 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
 
-    String s1[];
-    int images[] = {R.drawable.castelo_de_beja, R.drawable.museu_regional, R.drawable.nucleo, R.drawable.museu_visigotico, R.drawable.igreja, R.drawable.jardim};
+    String s1[], s2[];
+    int images[] = {R.drawable.castelo_de_beja, R.drawable.museu_regional, R.drawable.nucleo, R.drawable.museu_visigotico};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,9 @@ public class MainActivity extends AppCompatActivity {
         recyclerView= findViewById(R.id.recycleView);
 
         s1 = getResources().getStringArray(R.array.Bem_vindo_a_Beja);
-        MyAdapter myAdapter = new MyAdapter(this, s1, images);
+        s2 = getResources().getStringArray(R.array.description);
+
+        MyAdapter myAdapter = new MyAdapter(this, s1, s2, images);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

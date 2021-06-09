@@ -6,8 +6,13 @@
         <item>Museu Regional de Beja</item>
         <item>Núcleo Museulógico</item>
         <item>Museu Visigóico</item>
-        <item>Igreja da Nossa Senhora dos Prazeres</item>
-        <item>Jardim Gago Coutinho e Sacadura Cabral</item>
-
     </string-array>
+
+    <string-array name = "description">
+        <item>Beja</item>
+        <item>Beja</item>
+        <item>Beja</item>
+        <item>Beja</item>
+    </string-array>
+
 </resources>
