@@ -2,18 +2,31 @@ package com.example.roteiroturisticobeja_02;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+
 public class SecondActivity extends AppCompatActivity {
 
-    ImageView mainImageView;
-    TextView title, description;
+    private static final String KEY_MONUID = "monuId";
+    private static final String TAG = "SecondActivity";
+
+    private Monuments monuments;
+    
+    private ImageView mainImageView;
+     private TextView title, description;
 
     String data1, data2;
     int myImage;
+
+    public static void startActivity(Context context, long id) {
+        
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,24 +37,19 @@ public class SecondActivity extends AppCompatActivity {
         title = findViewById(R.id.title);
         description = findViewById(R.id.description);
 
-        getData();
-        setData();
-    }
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            long monuId = bundle.getLong(KEY_MONUID, -1);
+            if (monuId == -1) {
+                Log.e(TAG, "Ivalido!");
+                finish();
+                return;
+            }
 
-    private void getData(){
-        if(getIntent().hasExtra("myImage") && getIntent().hasExtra("data1") && getIntent().hasExtra("data2")){
-        data1 = getIntent().getStringExtra("data1");
-        data2 = getIntent().getStringExtra("data2");
-        myImage = getIntent().getIntExtra("myImage", 1);
+            this.monuments = DataSource.getMonument(this, monuId);
+            this.title.setText(monuments.getMonument_name());
+            this.description.setText(monuments.getDescription());
+            Glide.with(this).load(this.monuments.getImage()).into(this.mainImageView);
         }
-        else{
-            Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void setData(){
-        title.setText(data1);
-        description.setText(data2);
-        mainImageView.setImageResource(myImage);
     }
 }

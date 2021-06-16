@@ -10,9 +10,6 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
 
-    String s1[], s2[];
-    int images[] = {R.drawable.castelo_de_beja, R.drawable.museu_regional, R.drawable.nucleo, R.drawable.museu_visigotico};
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,10 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView= findViewById(R.id.recycleView);
 
-        s1 = getResources().getStringArray(R.array.Bem_vindo_a_Beja);
-        s2 = getResources().getStringArray(R.array.description);
-
-        MonumentAdapter myAdapter = new MonumentAdapter(this, s1, s2, images);
+        MonumentAdapter myAdapter = new MonumentAdapter(this, AppDatabase.getInstance(this).getMonumentDAO().getAll());
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

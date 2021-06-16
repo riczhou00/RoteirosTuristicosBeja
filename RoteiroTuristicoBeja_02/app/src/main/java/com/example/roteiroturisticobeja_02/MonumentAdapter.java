@@ -11,17 +11,18 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
+import java.util.List;
+
 public class MonumentAdapter extends RecyclerView.Adapter<MonumentAdapter.MyViewHolder> {
 
+    private List<Monuments> monumentsList;
+    private Context context;
 
-
-    String data1[], data2[];
-    int images[];
-    Context context;
-
-    public MonumentAdapter(Context ct, String s1[], String s2[], int img[]){
+    public MonumentAdapter(Context ct, List<Monuments> monumentsList){
+        this.monumentsList = monumentsList;
         this.context = ct;
-
     }
 
     @NonNull
@@ -34,38 +35,34 @@ public class MonumentAdapter extends RecyclerView.Adapter<MonumentAdapter.MyView
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.txtText1.setText(data1[position]);
-        holder.txtText2.setText(data2[position]);
-        holder.myImage.setImageResource(images[position]);
-
+        Monuments monuments = this.monumentsList.get(position);
+        holder.txtViewTitle.setText(monuments.getMonument_name());
+        holder.txtViewDescription.setText(monuments.getDescription());
+        Glide.with(this.context).load(monuments.getImage()).into(holder.myImage);
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, SecondActivity.class);
-                intent.putExtra("data1", data1[position]);
-                intent.putExtra("data2", data2[position]);
-                intent.putExtra("myImage", images[position]);
-                context.startActivity(intent);
+                SecondActivity.startActivity(context, monuments.getId());
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return images.length;
+        return this.monumentsList.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView txtText1, txtText2;
+        TextView txtViewTitle, txtViewDescription;
         ImageView myImage;
-        ConstraintLayout mainLayout;
+        View mainLayout;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtText1 = itemView.findViewById(R.id.txtTitle);
-            txtText2 = itemView.findViewById(R.id.txtDescription);
-            myImage = itemView.findViewById(R.id.MyImageView);
-            mainLayout = itemView.findViewById(R.id.mainLayout);
+            this.txtViewTitle = itemView.findViewById(R.id.txtViewTitle);
+            this.txtViewDescription = itemView.findViewById(R.id.txtViewDescription);
+            this.myImage = itemView.findViewById(R.id.MyImageView);
+            this.mainLayout = itemView;
         }
     }
 }
