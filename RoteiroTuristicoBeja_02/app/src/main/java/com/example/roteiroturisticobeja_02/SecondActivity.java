@@ -3,6 +3,7 @@ package com.example.roteiroturisticobeja_02;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -24,8 +25,10 @@ public class SecondActivity extends AppCompatActivity {
     String data1, data2;
     int myImage;
 
-    public static void startActivity(Context context, long id) {
-        
+    public static void startActivity(Context context, long monuId) {
+        Intent intent = new Intent(context, SecondActivity.class);
+        intent.putExtra(KEY_MONUID, monuId);
+        context.startActivity(intent);
     }
 
     @Override

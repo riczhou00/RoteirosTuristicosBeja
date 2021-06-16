@@ -37,7 +37,7 @@ public class MonumentAdapter extends RecyclerView.Adapter<MonumentAdapter.MyView
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Monuments monuments = this.monumentsList.get(position);
         holder.txtViewTitle.setText(monuments.getMonument_name());
-        holder.txtViewDescription.setText(monuments.getDescription());
+        //holder.txtViewDescription.setText(monuments.getDescription());
         Glide.with(this.context).load(monuments.getImage()).into(holder.myImage);
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +60,6 @@ public class MonumentAdapter extends RecyclerView.Adapter<MonumentAdapter.MyView
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             this.txtViewTitle = itemView.findViewById(R.id.txtViewTitle);
-            this.txtViewDescription = itemView.findViewById(R.id.txtViewDescription);
             this.myImage = itemView.findViewById(R.id.MyImageView);
             this.mainLayout = itemView;
         }
