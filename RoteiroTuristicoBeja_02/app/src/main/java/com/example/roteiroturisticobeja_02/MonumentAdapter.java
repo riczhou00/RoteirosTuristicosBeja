@@ -11,17 +11,17 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class MonumentAdapter extends RecyclerView.Adapter<MonumentAdapter.MyViewHolder> {
+
+
 
     String data1[], data2[];
     int images[];
     Context context;
 
-    public MyAdapter(Context ct, String s1[], String s2[], int img[]){
-        context = ct;
-        data1 = s1;
-        data2 = s2;
-        images = img;
+    public MonumentAdapter(Context ct, String s1[], String s2[], int img[]){
+        this.context = ct;
+
     }
 
     @NonNull
@@ -62,8 +62,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtText1 = itemView.findViewById(R.id.txtText1);
-            txtText2 = itemView.findViewById(R.id.txtText2);
+            txtText1 = itemView.findViewById(R.id.txtTitle);
+            txtText2 = itemView.findViewById(R.id.txtDescription);
             myImage = itemView.findViewById(R.id.MyImageView);
             mainLayout = itemView.findViewById(R.id.mainLayout);
         }

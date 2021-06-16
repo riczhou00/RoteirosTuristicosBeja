@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">RoteiroTuristicoBeja</string>
+    <string name="app_name">Roteiro Turistico de Beja</string>
 
     <string-array name="Bem_vindo_a_Beja">
         <item>Castelo de Beja</item>
         <item>Museu Regional de Beja</item>
         <item>Núcleo Museulógico</item>
-        <item>Museu Visigóico</item>
+        <item>Museu Visigótico</item>
     </string-array>
 
     <string-array name = "description">

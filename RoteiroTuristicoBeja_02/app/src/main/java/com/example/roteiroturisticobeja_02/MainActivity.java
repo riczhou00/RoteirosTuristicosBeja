@@ -5,8 +5,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.widget.AbsListView;
-import android.widget.Adapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,8 +23,11 @@ public class MainActivity extends AppCompatActivity {
         s1 = getResources().getStringArray(R.array.Bem_vindo_a_Beja);
         s2 = getResources().getStringArray(R.array.description);
 
-        MyAdapter myAdapter = new MyAdapter(this, s1, s2, images);
+        MonumentAdapter myAdapter = new MonumentAdapter(this, s1, s2, images);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 }
+
+//https://www.youtube.com/watch?v=18VcnYN5_LM
+//https://www.youtube.com/watch?v=xgpLYwEmlO0
