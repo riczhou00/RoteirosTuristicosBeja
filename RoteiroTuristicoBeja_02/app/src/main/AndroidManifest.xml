@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.roteiroturisticobeja_02">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,11 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RoteiroTuristicoBeja_02"
         android:usesCleartextTraffic="true">
-
-        <activity android:name=".SecondActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="Details"/>
-
+        <activity android:name=".SingleActivity" />
+        <activity android:name=".GroupActivity" />
+        <activity
+            android:name=".SecondActivity"
+            android:label="Details"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

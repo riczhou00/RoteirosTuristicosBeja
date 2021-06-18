@@ -53,7 +53,7 @@ public class MonumentAdapter extends RecyclerView.Adapter<MonumentAdapter.MyView
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView txtViewTitle, txtViewDescription;
+        TextView txtViewTitle;
         ImageView myImage;
         View mainLayout;
 

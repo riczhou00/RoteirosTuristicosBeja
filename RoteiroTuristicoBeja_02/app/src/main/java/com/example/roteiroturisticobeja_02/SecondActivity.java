@@ -22,9 +22,6 @@ public class SecondActivity extends AppCompatActivity {
     private ImageView mainImageView;
      private TextView title, description;
 
-    String data1, data2;
-    int myImage;
-
     public static void startActivity(Context context, long monuId) {
         Intent intent = new Intent(context, SecondActivity.class);
         intent.putExtra(KEY_MONUID, monuId);
