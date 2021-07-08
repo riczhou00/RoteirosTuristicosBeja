@@ -27,11 +27,12 @@ public class SecondActivity extends AppCompatActivity {
     private static final String TAG = "SecondActivity";
 
     private Monuments monuments;
-    
+
     private ImageView mainImageView;
-    private TextToSpeech title;
-    private TextView description;
+    private TextView title, description;
+    private TextToSpeech TTs;
     private FloatingActionButton FabTextSpeak;
+    private FloatingActionButton FabTextStop;
     private Button btnLaunchMap;
 
     public static void startActivity(Context context, long monuId) {
@@ -45,13 +46,17 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
+        FabTextSpeak = findViewById(R.id.FabTextSpeak);
+
+        FabTextStop = findViewById(R.id.FabTextStop);
+
         mainImageView = findViewById(R.id.mainImageView);
 
-        title = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+        TTs = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
                 if(status == TextToSpeech.SUCCESS){
-                   int result = title.setLanguage(new Locale("pt"));
+                   int result = TTs.setLanguage(new Locale("pt"));
 
                    if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED){
                         Log.e("TextToSpeech", "Language not supported");
@@ -59,17 +64,31 @@ public class SecondActivity extends AppCompatActivity {
                    else{
                         FabTextSpeak.setEnabled(true);
                    }
-                   else{
-                        Log.e("TextToSpeech", "Initialization failed");
-                    }
+                }else{
+                    Log.e("TextToSpeech", "Initialization failed");
                 }
             }
         });
+
         title = findViewById(R.id.title);
 
         description = findViewById(R.id.description);
 
         btnLaunchMap = findViewById(R.id.launchMap);
+
+        FabTextSpeak.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                speak();
+            }
+        });
+
+        FabTextStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TTs.stop();
+            }
+        });
 
         btnLaunchMap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,15 +105,23 @@ public class SecondActivity extends AppCompatActivity {
         if (bundle != null) {
             long monuId = bundle.getLong(KEY_MONUID, -1);
             if (monuId == -1) {
-                Log.e(TAG, "Ivalido!");
+                Log.e(TAG, "Inválido!");
                 finish();
                 return;
             }
 
             this.monuments = DataSource.getMonument(this, monuId);
-
+            this.title.setText(monuments.getMonument_name());
             this.description.setText(monuments.getDescription());
             Glide.with(this).load(this.monuments.getImage()).into(this.mainImageView);
         }
     }
+    private void speak(){
+        String readTitle = title.getText().toString();
+        String readDescription = description.getText().toString();
+
+        TTs.speak(readTitle + readDescription, TextToSpeech.QUEUE_FLUSH, null);
+
+    }
+
 }

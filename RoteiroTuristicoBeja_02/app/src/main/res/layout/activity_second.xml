@@ -88,13 +88,25 @@
                 android:id="@+id/FabTextSpeak"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="48dp"
-                android:layout_marginRight="48dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="92dp"
+                android:layout_marginRight="92dp"
                 android:clickable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView2"
                 app:srcCompat="@android:drawable/ic_btn_speak_now" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/FabTextStop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:clickable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2"
+                app:srcCompat="@android:drawable/ic_media_pause" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

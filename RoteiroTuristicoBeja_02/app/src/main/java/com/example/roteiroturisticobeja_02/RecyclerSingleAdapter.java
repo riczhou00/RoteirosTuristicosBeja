@@ -40,7 +40,7 @@ public class RecyclerSingleAdapter extends RecyclerView.Adapter<RecyclerSingleAd
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SecondActivity.startActivity(context, monuments.getId());
+                FreeVisitActivity.startActivity(context, monuments.getId());
             }
         });
     }

@@ -24,7 +24,7 @@
         app:layout_constraintGuide_percent="0.08" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerSingle"
+        android:id="@+id/recyclerFreeVisit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"

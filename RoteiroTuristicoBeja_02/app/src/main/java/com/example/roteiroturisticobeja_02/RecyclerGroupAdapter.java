@@ -41,7 +41,7 @@ public class RecyclerGroupAdapter extends RecyclerView.Adapter<RecyclerGroupAdap
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SecondActivity.startActivity(context, monuments.getId());
+                GroupActivity.startActivity(context, monuments.getId());
             }
         });
     }
