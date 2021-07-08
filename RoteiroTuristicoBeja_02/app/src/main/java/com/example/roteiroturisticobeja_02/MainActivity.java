@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     Button buttonGroup;
     Button buttonSingle;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         buttonSingle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, SingleActivity.class));
+                startActivity(new Intent(MainActivity.this, FreeVisitActivity.class));
             }
         });
     }
