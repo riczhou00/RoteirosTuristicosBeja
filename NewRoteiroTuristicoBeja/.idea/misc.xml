@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/github/RoteirosTuristicosBeja/NewRoteiroTuristicoBeja/app/src/main/res/drawable/button_round_corners.xml" value="0.298" />
         <entry key="..\:/github/RoteirosTuristicosBeja/NewRoteiroTuristicoBeja/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/github/RoteirosTuristicosBeja/NewRoteiroTuristicoBeja/app/src/main/res/layout/fragment_inicial.xml" value="0.365625" />
+        <entry key="..\:/github/RoteirosTuristicosBeja/NewRoteiroTuristicoBeja/app/src/main/res/layout/fragment_initial.xml" value="0.365625" />
+        <entry key="..\:/github/RoteirosTuristicosBeja/NewRoteiroTuristicoBeja/app/src/main/res/layout/fragment_main.xml" value="0.365625" />
       </map>
     </option>
   </component>
