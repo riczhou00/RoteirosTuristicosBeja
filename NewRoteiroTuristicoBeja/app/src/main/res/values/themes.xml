@@ -3,6 +3,9 @@
         <!-- Status bar color. -->
         <item name="colorPrimaryDark">@color/blue_l</item>
         <item name="android:navigationBarColor">@color/blue_l</item>
+        <item name="colorControlNormal">@color/pink_d</item>
+        <item name="colorControlActivated">@color/pink_d</item>
+        <item name="colorControlHighlight">@color/pink_d</item>
         <!-- Customize your theme here. -->
     </style>
     <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">

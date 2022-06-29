@@ -30,4 +30,22 @@ public class AppRepository {
         mutableLiveData.setValue(appDAO.getMonumentByID(id));
         return mutableLiveData;
     }
+
+    public void addLike(long id){
+        appDAO.addLike(id);
+    }
+
+    public void addDislike(long id){
+        appDAO.addDislike(id);
+    }
+
+    public LiveData<List<Comments>> getCommentsById(long id){
+        MutableLiveData<List<Comments>> mutableLiveData = new MutableLiveData<>();
+        mutableLiveData.setValue(appDAO.getCommentsByMonumentsId(id));
+        return mutableLiveData;
+    }
+
+    public void addComment(Comments comments){
+        appDAO.addComment(comments);
+    }
 }
