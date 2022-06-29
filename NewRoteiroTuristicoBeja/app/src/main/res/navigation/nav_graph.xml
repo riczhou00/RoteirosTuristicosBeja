@@ -18,5 +18,21 @@
         android:id="@+id/mainFragment"
         android:name="ipbeja.pac.roteirosturisticosdebeja.viewFragments.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_monumentFragment"
+            app:destination="@id/monumentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/monumentFragment"
+        android:name="ipbeja.pac.roteirosturisticosdebeja.viewFragments.MonumentFragment"
+        android:label="fragment_monument"
+        tools:layout="@layout/fragment_monument" >
+        <action
+            android:id="@+id/action_monumentFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <argument
+            android:name="id"
+            app:argType="long" />
+    </fragment>
 </navigation>

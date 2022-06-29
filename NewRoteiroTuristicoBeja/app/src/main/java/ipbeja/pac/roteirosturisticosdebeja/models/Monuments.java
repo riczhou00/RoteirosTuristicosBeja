@@ -9,17 +9,27 @@ public class Monuments {
     private long id;
     private String monument_name;
     private String monument_descriptions;
+    private String coordinates;
     private int likes;
     private int dislikes;
     private String image;
 
-    public Monuments(long id, String monument_name, String monument_descriptions, int likes, int dislikes, String image) {
+    public Monuments(long id, String monument_name, String monument_descriptions, String coordinates ,int likes, int dislikes, String image) {
         this.id = id;
         this.monument_name = monument_name;
         this.monument_descriptions = monument_descriptions;
+        this.coordinates = coordinates;
         this.likes = likes;
         this.dislikes = dislikes;
         this.image = image;
+    }
+
+    public String getCoordinates() {
+        return coordinates;
+    }
+
+    public void setCoordinates(String coordinates) {
+        this.coordinates = coordinates;
     }
 
     public long getId() {
