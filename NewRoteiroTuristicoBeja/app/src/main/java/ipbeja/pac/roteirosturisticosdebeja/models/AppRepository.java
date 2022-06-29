@@ -23,5 +23,6 @@ public class AppRepository {
         MutableLiveData<List<Monuments>> mutableLiveData = new MutableLiveData<>();
         mutableLiveData.setValue(appDAO.getAllMonuments());
         return mutableLiveData;
+        //teste pra ver se funcionar o portatil
     }
 }
