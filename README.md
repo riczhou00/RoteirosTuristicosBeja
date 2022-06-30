@@ -1,4 +1,6 @@
 # RoteirosTuristicosBeja
+![logo_final](https://user-images.githubusercontent.com/79975937/176783997-1f72d5fa-42af-41fb-a776-db4e62c6bd1c.jpg)
+
 
 Tarefas iniciais:
 1- implementar uma lista de pontos turisticos;
