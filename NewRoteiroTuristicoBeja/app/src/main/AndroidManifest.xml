@@ -12,7 +12,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/app_logo_s"
-        android:label="@string/app_name"
+        android:label="Roteiros Turisticos de Beja"
         android:roundIcon="@drawable/app_logo_s"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"

@@ -48,4 +48,34 @@ public class AppRepository {
     public void addComment(Comments comments){
         appDAO.addComment(comments);
     }
+
+    public LiveData<User> getUserByCredentials(String email, String password){
+        MutableLiveData<User> mutableLiveData = new MutableLiveData<>();
+        User user = appDAO.getUserByCredentials(email,password);
+        if (user != null) {
+            mutableLiveData.setValue(user);
+        }else {
+            mutableLiveData.setValue(null);
+        }
+        return mutableLiveData;
+    }
+
+    public LiveData<User> getUserByEmail(String email){
+        MutableLiveData<User> mutableLiveData = new MutableLiveData<>();
+        User user = appDAO.getUserByEmail(email);
+        if (user != null) {
+            mutableLiveData.setValue(user);
+        }else {
+            mutableLiveData.setValue(null);
+        }
+        return mutableLiveData;
+    }
+
+    public void addUser(User user){
+        appDAO.addUser(user);
+    }
+
+    public User getUserById(long user_id) {
+        return appDAO.getUserById(user_id);
+    }
 }

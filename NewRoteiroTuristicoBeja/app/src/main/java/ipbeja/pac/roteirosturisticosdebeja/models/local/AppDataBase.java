@@ -10,8 +10,9 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import ipbeja.pac.roteirosturisticosdebeja.models.Comments;
 import ipbeja.pac.roteirosturisticosdebeja.models.Monuments;
+import ipbeja.pac.roteirosturisticosdebeja.models.User;
 
-@Database(entities = {Comments.class, Monuments.class}, version = 1)
+@Database(entities = {Comments.class, Monuments.class, User.class}, version = 1)
 public abstract class AppDataBase extends RoomDatabase {
     public abstract AppDAO getAppDAO();
     private static AppDataBase INSTANCE;

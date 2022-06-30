@@ -8,6 +8,7 @@ import java.util.List;
 
 import ipbeja.pac.roteirosturisticosdebeja.models.Comments;
 import ipbeja.pac.roteirosturisticosdebeja.models.Monuments;
+import ipbeja.pac.roteirosturisticosdebeja.models.User;
 
 @Dao
 public interface AppDAO {
@@ -28,4 +29,16 @@ public interface AppDAO {
 
     @Query("UPDATE Monuments SET dislikes = dislikes + 1 WHERE id=:id")
     void addDislike(long id);
+
+    @Query("SELECT * FROM User WHERE email =:email AND password =:password")
+    User getUserByCredentials(String email,String password);
+
+    @Query("SELECT * FROM User WHERE email =:email")
+    User getUserByEmail(String email);
+
+    @Insert
+    void addUser(User user);
+
+    @Query("SELECT * FROM User WHERE id =:user_id")
+    User getUserById(long user_id);
 }

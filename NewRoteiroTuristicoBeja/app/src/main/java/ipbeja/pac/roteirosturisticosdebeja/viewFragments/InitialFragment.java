@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import ipbeja.pac.roteirosturisticosdebeja.models.User;
 import ipbeja.pac.roteirosturisticosdebeja.viewModels.InitialViewModel;
 import ipbeja.pac.roteirosturisticosdebeja.R;
 
@@ -34,11 +35,25 @@ public class InitialFragment extends Fragment {
         mViewModel = new ViewModelProvider(this).get(InitialViewModel.class);
         context = this.getContext();
 
-        Button buttonToMain = view.findViewById(R.id.buttonGoMain);
-        buttonToMain.setOnClickListener(new View.OnClickListener() {
+        User user = mViewModel.getActiveSession();
+        if (user != null) {
+            NavDirections navDirections = InitialFragmentDirections.actionInicialFragmentToMainFragment(user.getId());
+            NavHostFragment.findNavController(InitialFragment.this).navigate(navDirections);
+        }
+
+        Button buttonToLogin = view.findViewById(R.id.buttonGoLogIn);
+        Button buttonToSignin = view.findViewById(R.id.buttonGoSignIn);
+        buttonToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavDirections navDirections = InitialFragmentDirections.actionInicialFragmentToMainFragment();
+                NavDirections navDirections = InitialFragmentDirections.actionInicialFragmentToLogInFragment();
+                NavHostFragment.findNavController(InitialFragment.this).navigate(navDirections);
+            }
+        });
+        buttonToSignin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections navDirections = InitialFragmentDirections.actionInicialFragmentToSignInFragment();
                 NavHostFragment.findNavController(InitialFragment.this).navigate(navDirections);
             }
         });

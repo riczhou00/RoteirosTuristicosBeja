@@ -47,7 +47,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         holder.root.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onMonumentClick(monuments.getId());
+                listener.onMonumentClick(monuments.getId(),(long)1);
             }
         });
     }
@@ -76,6 +76,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     }
 
     public interface OnMonumentClickListener{
-        void onMonumentClick(long id);
+        void onMonumentClick(long id,long user_id);
     }
 }

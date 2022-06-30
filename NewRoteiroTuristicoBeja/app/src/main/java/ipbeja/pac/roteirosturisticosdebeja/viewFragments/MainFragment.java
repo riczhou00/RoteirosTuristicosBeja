@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import java.util.List;
 
@@ -48,13 +49,14 @@ public class MainFragment extends Fragment {
         mViewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
         Toolbar toolbar = view.findViewById(R.id.toolBarMain);
+        toolbar.setTitle("Reteiros Turisticos de Beja");
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerViewMain);
         MainAdapter adapter = new MainAdapter(context, new MainAdapter.OnMonumentClickListener() {
             @Override
-            public void onMonumentClick(long id) {
-                NavDirections navDirections = MainFragmentDirections.actionMainFragmentToMonumentFragment(id);
+            public void onMonumentClick(long id, long user_id) {
+                NavDirections navDirections = MainFragmentDirections.actionMainFragmentToMonumentFragment(id,mViewModel.getActiveSession().getId());
                 NavHostFragment.findNavController(MainFragment.this).navigate(navDirections);
             }
         });
@@ -66,6 +68,16 @@ public class MainFragment extends Fragment {
             @Override
             public void onChanged(List<Monuments> monuments) {
                 adapter.updateList(monuments);
+            }
+        });
+
+        Button logOut = view.findViewById(R.id.btnLogOut);
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mViewModel.clearSession();
+                NavDirections navDirections = MainFragmentDirections.actionMainFragmentToInicialFragment();
+                NavHostFragment.findNavController(MainFragment.this).navigate(navDirections);
             }
         });
 

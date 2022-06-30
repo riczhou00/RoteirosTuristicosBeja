@@ -7,13 +7,23 @@ import androidx.room.PrimaryKey;
 public class Comments {
     @PrimaryKey(autoGenerate = true)
     private long id;
+    private long user_id;
     private long monument_id;
     private String comment;
 
-    public Comments(long id, long monument_id, String comment) {
+    public Comments(long id,long user_id, long monument_id, String comment) {
         this.id = id;
+        this.user_id = user_id;
         this.monument_id = monument_id;
         this.comment = comment;
+    }
+
+    public long getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(long user_id) {
+        this.user_id = user_id;
     }
 
     public long getId() {

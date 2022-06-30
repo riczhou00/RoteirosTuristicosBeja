@@ -7,23 +7,30 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
-import java.util.List;
-
 import ipbeja.pac.roteirosturisticosdebeja.models.AppRepository;
-import ipbeja.pac.roteirosturisticosdebeja.models.Monuments;
 import ipbeja.pac.roteirosturisticosdebeja.models.SessionRepository;
 import ipbeja.pac.roteirosturisticosdebeja.models.User;
 
-public class InitialViewModel extends AndroidViewModel {
+public class LogInViewModel extends AndroidViewModel {
 
     private SessionRepository sessionRepository;
+    private AppRepository appRepository;
 
-    public InitialViewModel(@NonNull Application application) {
+    public LogInViewModel(@NonNull Application application) {
         super(application);
         this.sessionRepository = new SessionRepository(application.getApplicationContext());
+        this.appRepository = new AppRepository(application.getApplicationContext());
     }
 
-    public User getActiveSession(){
-        return sessionRepository.getActiveSession();
+    public LiveData<User> getUserByCredentials(String email, String password){
+        return appRepository.getUserByCredentials(email, password);
+    }
+
+    public void saveSession(User user){
+        sessionRepository.saveSession(user);
+    }
+
+    public void addUser(User user){
+        appRepository.addUser(user);
     }
 }

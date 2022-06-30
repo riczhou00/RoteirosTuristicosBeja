@@ -148,7 +148,8 @@ public class MonumentFragment extends Fragment implements TextToSpeech.OnInitLis
             public void onClick(View view) {
                 if (!editTextComment.getText().toString().isEmpty()) {
                     long monumentID = mViewModel.getMonumentById(monumentid).getValue().getId();
-                    Comments comments = new Comments(0,monumentID,editTextComment.getText().toString());
+                    mViewModel.getActiveSession();
+                    Comments comments = new Comments(0,mViewModel.getActiveSession().getId(),monumentID,editTextComment.getText().toString());
                     mViewModel.addComment(comments);
                     adapter.addToList(comments);
                     editTextComment.setText("");

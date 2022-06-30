@@ -11,6 +11,12 @@
         android:label="fragment_inicial"
         tools:layout="@layout/fragment_initial" >
         <action
+            android:id="@+id/action_inicialFragment_to_logInFragment"
+            app:destination="@id/logInFragment" />
+        <action
+            android:id="@+id/action_inicialFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+        <action
             android:id="@+id/action_inicialFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
@@ -22,6 +28,12 @@
         <action
             android:id="@+id/action_mainFragment_to_monumentFragment"
             app:destination="@id/monumentFragment" />
+        <argument
+            android:name="user_id"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_mainFragment_to_inicialFragment"
+            app:destination="@id/inicialFragment" />
     </fragment>
     <fragment
         android:id="@+id/monumentFragment"
@@ -34,5 +46,25 @@
         <argument
             android:name="id"
             app:argType="long" />
+        <argument android:name="user_id"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/logInFragment"
+        android:name="ipbeja.pac.roteirosturisticosdebeja.viewFragments.LogInFragment"
+        android:label="fragment_log_in"
+        tools:layout="@layout/fragment_log_in" >
+        <action
+            android:id="@+id/action_logInFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="ipbeja.pac.roteirosturisticosdebeja.viewFragments.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signInFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 </navigation>
