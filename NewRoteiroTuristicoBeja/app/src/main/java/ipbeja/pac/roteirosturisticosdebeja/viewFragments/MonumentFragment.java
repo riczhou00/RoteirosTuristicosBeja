@@ -18,13 +18,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.speech.tts.TextToSpeech;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -79,12 +82,15 @@ public class MonumentFragment extends Fragment implements TextToSpeech.OnInitLis
         Button likeMonument = view.findViewById(R.id.btnLikeMonument);
         Button dislikeMonument = view.findViewById(R.id.btnDislikeMonument);
         TextView textViewMonumentDiscription = view.findViewById(R.id.txtViewMonumentDescription);
+        textViewMonumentDiscription.setMovementMethod(new ScrollingMovementMethod());
         RecyclerView recyclerView = view.findViewById(R.id.recyViewComments);
 
         EditText editTextComment = view.findViewById(R.id.edtTxtComment);
         ImageButton imgBtnAddComment = view.findViewById(R.id.imgBtnSendComment);
         FloatingActionButton floatBtnTxtSpeek = view.findViewById(R.id.flotBtnTxtSpeek);
         FloatingActionButton floatBtnGoogleMaps = view.findViewById(R.id.flotBtnMap);
+
+        ScrollView scrollView = view.findViewById(R.id.scrollView);
 
         CommentsAdapter adapter = new CommentsAdapter(context);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
@@ -170,6 +176,23 @@ public class MonumentFragment extends Fragment implements TextToSpeech.OnInitLis
                 startActivity(mapIntent);
             }
         });
+
+        scrollView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                textViewMonumentDiscription.getParent().requestDisallowInterceptTouchEvent(false);
+                return false;
+            }
+        });
+
+        textViewMonumentDiscription.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                textViewMonumentDiscription.getParent().requestDisallowInterceptTouchEvent(true);
+                return false;
+            }
+        });
+
     }
 
     private void speak(String monumentDesc) {
@@ -179,7 +202,15 @@ public class MonumentFragment extends Fragment implements TextToSpeech.OnInitLis
     @Override
     public void onInit(int i) {
         if (i == TextToSpeech.SUCCESS) {
-            textToSpeech.setLanguage(new Locale("pt"));
+            textToSpeech.setLanguage(new Locale("pt","PT"));
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (textToSpeech != null) {
+            textToSpeech.shutdown();
         }
     }
 }
