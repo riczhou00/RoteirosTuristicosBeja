@@ -7,7 +7,7 @@ Aos alunos do primeiro ano da Escola Superior de Tecnologia e Gestão (ESTIG) da
 O tema que escolhi foi Roteiros Turísticos na Cidade de Beja. A razão por ter escolhido este tema é conseguir transmitir uma boa impressão sobre a cidade às pessoas quando quiserem visitar Beja. Mostramos pontos interessantes sobre a cidade e dar a conhecer os turistas de que Beja tem muito para mostrar e conseguir despertar o interesse das pessoas para as próximas viagens.
 
 
-# Obejtivos a alcançar
+# Objetivos a alcançar
 Um projeto como este, é também importante aprender no processo. Portanto tiramos partido do mesmo para enriquecer o conhecimento. No que diz respeito ao projeto, deverá ser possível mostrar os pontos de interesse de Beja com uma breve descrição, opção de dar like e dislike, adicionar comentário sobre a experiência, ter acesso ao mapa as localizações de cada ponto turístico e um sistema que vai explicar uma breve descrição da mesma.
 
 
