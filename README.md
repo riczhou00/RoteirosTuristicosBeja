@@ -25,5 +25,5 @@ Um projeto como este, é também importante aprender no processo. Portanto tiram
 2- implementação de um TextToSpeech para ler o texto, para simular uma guia a falar sobre cada local;
 
 
-
+# 
 O resto está no relatório :)
