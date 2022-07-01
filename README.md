@@ -13,12 +13,15 @@ Um projeto como este, é também importante aprender no processo. Portanto tiram
 
 # Tarefas iniciais:
 1- Criação de login e registar;
+
 2- implementar uma lista de pontos turisticos;
+
 3- implementação de um mapa para cada ponto;
 
 
 # Avançadas:
 1- Criação de uma lista de comentários;
+
 2- implementação de um TextToSpeech para ler o texto, para simular uma guia a falar sobre cada local;
 
 
